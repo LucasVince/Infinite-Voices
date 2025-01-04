@@ -1,8 +1,8 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-const DBConnection = require('./DB/connect');
+import connection from'./DB/connect';
 
-const Express = require('./modules/express');
+const Express = require('./modules/serverExpress');
 
-DBConnection();
+connection();

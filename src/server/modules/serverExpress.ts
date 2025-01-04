@@ -1,5 +1,6 @@
 const express = require('express');
 const server = express();
+const router = require('./authRoutes');
 
 server.use(express.json());
 
