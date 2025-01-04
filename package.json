@@ -1,0 +1,42 @@
+{
+  "name": "infinite-voices",
+  "version": "1.0.0",
+  "scripts": {
+    "electron": "electron main.js",
+    "build": "tsc",
+    "e-build": "electron-builder",
+    "dev": "nodemon dist/server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "luxon": "^3.5.0",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "typescript": "^5.7.2"
+  },
+  "build": {
+    "appId": "infinite.voices",
+    "productName": "InfiniteVoices",
+    "files": [
+      "dist/*/",
+      "index.html",
+      "main.js"
+    ],
+    "win": {
+      "icon": "icon/icon.ico"
+    },
+    "mac": {
+      "icon": "icon/icon.icns"
+    }
+  }
+}
