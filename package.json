@@ -25,6 +25,9 @@
     "sharp": "^0.33.5"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^22.10.5",
     "electron": "^33.2.1",
     "typescript": "^5.7.2"
   },

@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require('mongoose');
 const connection = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -18,4 +19,4 @@ const connection = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(`error connecting to DB: ${err}`);
     }
 });
-module.exports = connection;
+exports.default = connection;
