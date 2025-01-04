@@ -2,6 +2,8 @@
 
 # Infinite Voices 🗣️
 
+<br>
+
 Bem-vindo ao **Infinite Voices** — um fórum interativo e altamente escalável, está sendo desenvolvido com **TypeScript** 💻, a linguagem que está dominando o mundo do desenvolvimento! Com uma interface amigável e performance de alto nível, este projeto foi construído para demonstrar nossa habilidades com está linguagem.
 
 <br>
