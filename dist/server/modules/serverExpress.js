@@ -16,8 +16,10 @@ const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 const user_model_1 = __importDefault(require("../DB/models/user.model"));
 app.use(express.json());
+app.use(cors());
 app.get('/', (req, res) => {
     return res.status(200).send('Welcome');
 });
@@ -52,25 +54,25 @@ app.post('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 }));
 app.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { usernameORemail, password } = req.body;
+    const { email, password } = req.body;
     try {
-        const user = yield user_model_1.default.findOne({ $or: [{ username: usernameORemail, email: usernameORemail }] });
+        const user = yield user_model_1.default.findOne({ email: email });
         if (!user)
             return res.status(404).json({ message: 'usuario não encontrado' });
         const isPasswordValid = yield bcrypt.compare(password, user.password);
         if (!isPasswordValid)
             return res.status(404).json({ message: 'senha incorreta' });
         const token = yield jwt.sign({ id: user._id, username: user.username }, process.env.LOGIN_USER_SECET_KEY, { expiresIn: '1h' });
-        res.status(200).json({ token });
+        return res.status(200).json({ token });
     }
     catch (err) {
         if (err instanceof Error) {
             console.error(err);
-            res.status(500).json({ message: err.message });
+            return res.status(500).json({ message: err.message });
         }
         else {
             console.error(err);
-            res.status(500).json({ message: 'Erro ao registrar o usuario' });
+            return res.status(500).json({ message: 'Erro Tentar Logar' });
         }
     }
 }));

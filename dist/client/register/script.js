@@ -20,7 +20,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
         
         console.log('Registro bem-sucedido!', data.token);
         localStorage.setItem('token', data.token);
-        window.location.replace = '../index.html';
+        window.location.href = '../index.html';
     } catch (error) {
         console.error('Erro na comunicação com o servidor:', error);
     }

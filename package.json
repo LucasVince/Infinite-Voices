@@ -13,9 +13,9 @@
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.4.7",
+    "cors": "^2.8.5",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "luxon": "^3.5.0",
@@ -25,6 +25,7 @@
     "sharp": "^0.33.5"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^22.10.5",
