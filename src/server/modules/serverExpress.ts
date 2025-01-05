@@ -7,7 +7,7 @@ import userModel from '../DB/models/user.model';
 app.use(express.json());
 
 app.get('/', (req: any, res: any) => {
-    return res.status(200).send('Weslcome');
+    return res.status(200).send('Welcome');
 });
 
 app.post('/register', async (req:any, res:any) => {
@@ -18,7 +18,7 @@ app.post('/register', async (req:any, res:any) => {
             return res.status(400).json({message: 'Informações faltando'});
         }
 
-        const userExists = await userModel.findOne({ $or: [{ username, email}]});
+        const userExists = await userModel.findOne({ $or: [{ username, email}] });
 
         if(userExists) {
             return res.status(400).json({ message: 'Este email ou o username já está foram pegos!'})
@@ -47,17 +47,18 @@ app.post('/register', async (req:any, res:any) => {
 
 
 app.post('/login', async(req:any, res:any)=> {
-    const { email, password } = req.body;
+    const { usernameORemail, password } = req.body;
 
     try {
-        const user = await userModel.findOne({ email });
+        const user = await userModel.findOne({ $or: [{ username: usernameORemail, email: usernameORemail }] });
         if (!user) return res.status(404).json({message:'usuario não encontrado'})
         
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if(!isPasswordValid) return res.status(404).json({ message:'senha incorreta' })
 
         const token = await jwt.sign({id: user._id, username: user.username}, process.env.LOGIN_USER_SECET_KEY as string, {expiresIn: '1h'});
-        res.json({ token });
+
+        res.status(200).json({ token });
     } catch (err) {
         if (err instanceof Error) {
             console.error(err);
@@ -69,4 +70,4 @@ app.post('/login', async(req:any, res:any)=> {
     }
 });
 
-app.listen(8080, () => console.log('app rodando da porta 8080'));
+app.listen(8080, () => console.log('app running on port 8080'));

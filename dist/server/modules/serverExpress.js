@@ -19,7 +19,7 @@ const bcrypt = require('bcrypt');
 const user_model_1 = __importDefault(require("../DB/models/user.model"));
 app.use(express.json());
 app.get('/', (req, res) => {
-    return res.status(200).send('Weslcome');
+    return res.status(200).send('Welcome');
 });
 app.post('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, email, password } = req.body;
@@ -52,16 +52,16 @@ app.post('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 }));
 app.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { email, password } = req.body;
+    const { usernameORemail, password } = req.body;
     try {
-        const user = yield user_model_1.default.findOne({ email });
+        const user = yield user_model_1.default.findOne({ $or: [{ username: usernameORemail, email: usernameORemail }] });
         if (!user)
             return res.status(404).json({ message: 'usuario não encontrado' });
         const isPasswordValid = yield bcrypt.compare(password, user.password);
         if (!isPasswordValid)
             return res.status(404).json({ message: 'senha incorreta' });
         const token = yield jwt.sign({ id: user._id, username: user.username }, process.env.LOGIN_USER_SECET_KEY, { expiresIn: '1h' });
-        res.json({ token });
+        res.status(200).json({ token });
     }
     catch (err) {
         if (err instanceof Error) {
@@ -74,4 +74,4 @@ app.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         }
     }
 }));
-app.listen(8080, () => console.log('app rodando da porta 8080'));
+app.listen(8080, () => console.log('app running on port 8080'));
