@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
     event.preventDefault();
     const email = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    fetch('http://localhost:8080/login', {
+    fetch('http://localhost:8080/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })

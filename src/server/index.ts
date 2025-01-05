@@ -3,6 +3,6 @@ dotenv.config();
 
 import connection from'./DB/connect';
 
-const Express = require('./modules/serverExpress');
+const express = require('./modules/serverExpress');
 
 connection();

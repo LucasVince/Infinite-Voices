@@ -4,7 +4,7 @@ document.getElementById('login-form')?.addEventListener('submit', (event) => {
     const email = (document.getElementById('username') as HTMLInputElement).value;
     const password= (document.getElementById('password') as HTMLInputElement).value;
 
-    fetch('http://localhost:8080/login', {
+    fetch('http://localhost:8080/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({email, password})
