@@ -1,30 +1,30 @@
 body {
-    background-color: #ffcc00;
-    color: #000080;
+    background-color: #ffcc00; 
+    color: #000080; 
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #000080;
-    color: #ffffff;
+    background-color: #000080; 
+    color: #ffffff; 
     text-align: center;
     padding: 20px;
     font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 2px 2px #ff0000;
+    text-shadow: 2px 2px #ff0000; 
 }
 
 nav {
-    background-color: #ffffff;
+    background-color: #ffffff; 
     padding: 10px;
     text-align: center;
 }
 
 nav a {
-    color: #000080;
+    color: #000080; 
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -42,7 +42,7 @@ main {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 60px); 
 }
 
 footer {
@@ -57,26 +57,52 @@ footer {
 
 .card {
     background-color: #ffffff;
-    border: 2px solid #000080;
+    border: 2px solid #000080; 
     padding: 20px;
     margin: 20px 0;
     border-radius: 10px;
-    box-shadow: 5px 5px #ff0000;
+    box-shadow: 5px 5px #ff0000; 
 }
 
 .card h2 {
-    color: #000080;
+    color: #000080; 
 }
 
 .card p {
-    color: #000080;
+    color: #000080; 
 }
 
-.Posts-container {
-    background-color: #ffffff;
-    border: 2px solid #000080;
-    padding: 10px;
-    border-radius: 10px;
+.credits-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.credit-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #000080;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: auto;
+}
+
+.profile-info h2 {
+    color: #000080;
+    font-family: 'Courier New', Courier, monospace;
 }
