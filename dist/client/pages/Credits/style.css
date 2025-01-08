@@ -43,7 +43,6 @@ main {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px); 
 }
 
 footer {
@@ -77,7 +76,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    justify-content: center;
+    height: 65vh;
 }
 
 .credit-item {

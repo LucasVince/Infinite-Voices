@@ -1,15 +1,21 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, screen } = require('electron');
 
 const createWindow = () => {
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+
     const win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        minWidth: 1280, 
+        minHeight: 720, 
+        width: width, 
+        height: height,
         title: 'Infinite Voices',
-        icon: 'icon/icon.ico',
+        icon: './icon/icon.ico',
         webPreferences: {
             nodeIntegration: true
         }
     });
+
+    win.maximize();
 
     Menu.setApplicationMenu(null);
 

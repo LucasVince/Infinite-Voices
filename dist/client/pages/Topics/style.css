@@ -42,8 +42,10 @@ nav span {
 main {
     padding: 20px;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    height: calc(100vh - 60px); 
+    gap: 100px;
+    margin-bottom: 100px;
 }
 
 footer {
@@ -56,72 +58,11 @@ footer {
     width: 100%;
 }
 
-.card {
-    background-color: #ffffff;
-    border: 2px solid #000080; 
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 5px 5px #ff0000; 
-}
-
-.card h2 {
-    color: #000080; 
-}
-
-.card p {
-    color: #000080; 
-}
-
-.chat-container {
-    background-color: #ffffff;
-    border: 2px solid #000080;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    height: 70vh;
-    width: 90%;
-    margin: 0 auto;
-    overflow-x: hidden;
-}
-
-.chat-header {
-    color: #000080;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.chat-messages {
-    flex-grow: 1;
-    max-height: 400px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    padding-right: 10px;
-}
-
-.chat-messages::-webkit-scrollbar {
-    width: 8px;
-}
-
-.chat-messages::-webkit-scrollbar-thumb {
-    background-color: #ff0000;
-    border-radius: 10px;
-}
-
-.chat-message {
-    background-color: #ffffff;
-    border: 1px solid #000080;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
-
 .chat-input {
     display: flex;
     align-items: center;
     margin-top: auto;
+    width: 50%;
 }
 
 .chat-input input[type="text"] {
@@ -144,4 +85,52 @@ footer {
 
 .chat-input button:hover {
     background-color: #ff0000;
+}
+
+.post {
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-header #infos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-header img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.post-header #tags p {
+    background-color: #ffcc0040;
+}
+
+#tags {
+    display: flex;
+    gap: 20px;
+}
+
+#tags p {
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.post-atachments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-atachments img {
+    border-radius: 5px;
 }

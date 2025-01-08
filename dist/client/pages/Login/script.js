@@ -19,7 +19,7 @@ document.getElementById('login-form').addEventListener('submit', async(e) => {
         
         console.log('Registro bem-sucedido!', data.token);
         localStorage.setItem('token', data.token);
-        window.location.href = '../index.html';
+        window.location.href = '../Home/Home.html';
     } catch (err) {
         console.log("erro no login, tente novamente mais tarde!", err.messagr);
     }

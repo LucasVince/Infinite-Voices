@@ -20,6 +20,7 @@ const cors = require('cors');
 const user_model_1 = __importDefault(require("../DB/models/user.model"));
 app.use(express.json());
 app.use(cors());
+const tokenBlacklist = new Set();
 app.get('/', (req, res) => {
     return res.status(200).send('Welcome');
 });
@@ -76,4 +77,37 @@ app.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         }
     }
 }));
+app.post('/logout', (req, res) => {
+    const { token } = req.body;
+    if (!token) {
+        return res.status(400).json({ message: 'Token is required' });
+    }
+    try {
+        jwt.verify(token, process.env.LOGIN_USER_SECET_KEY, (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ message: 'Invalid token' });
+            }
+            tokenBlacklist.add(token);
+            return res.status(200).json({ message: 'Logged out successfully' });
+        });
+    }
+    catch (err) {
+        if (err instanceof Error) {
+            console.error(err);
+            return res.status(500).json({ message: err.message });
+        }
+        else {
+            console.error(err);
+            return res.status(500).json({ message: 'Error logging out' });
+        }
+    }
+});
+app.use((req, res, next) => {
+    var _a;
+    const token = (_a = req.headers['authorization']) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
+    if (token && tokenBlacklist.has(token)) {
+        return res.status(401).json({ message: 'Token is blacklisted' });
+    }
+    next();
+});
 app.listen(8080, () => console.log('app running on port 8080'));
