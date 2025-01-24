@@ -8,7 +8,10 @@
 
 - Built using **TypeScript** — the language taking the development world by storm! 🏆  
 - **TypeScript** provides the **safety** and **efficiency** you need with static typing, enabling rapid development and bug-free code. ✨  
-- This project demonstrates our expertise with **TypeScript** and cutting-edge technologies. With **TypeScript**, we’ve created a highly scalable and maintainable forum, proving that it can power robust and modern systems. 💡  
+- This project demonstrates our expertise with **TypeScript** and cutting-edge technologies. With **TypeScript**, we’ve created a highly scalable and maintainable forum, proving that it can power robust and modern systems. 💡  <br><br>
+
+
+![Image](https://github.com/user-attachments/assets/4bdba1b7-2906-467a-94c9-d9a6705afb71)
 
 ---
 
@@ -21,34 +24,35 @@ Infinite Voices/
 ├── dist/
 │ └── [Compiled and distributed files]
 ├── client/
-│ ├── pages/
-│ │ ├── Configs/ # Configuration pages or settings
-│ │ ├── Credits/ # Credits page for developers or contributors
-│ │ ├── Home/ # Homepage for the forum
-│ │ ├── Login/ # Login page for user authentication
-│ │ ├── Perfil/ # User profile page
-│ │ │ ├── Perfil.html # HTML structure for the profile page
-│ │ │ └── script.js # JavaScript for interactivity in the profile page
-│ │ ├── Post/ # Page for creating and viewing posts
-│ │ ├── Register/ # Registration page for new users
-│ │ ├── Topics/ # Topics overview page
-│ │ │ └── script.js # JavaScript for handling topic interactions
-│ │ └── style.css # Global CSS styles for all pages
-├── server/
-│ ├── DB/
-│ │ └── models/
-│ │ ├── post.model.ts # Defines the MongoDB schema for posts
-│ │ ├── user.model.ts # Defines the MongoDB schema for users
-│ │ └── connect.ts # Handles MongoDB connection logic
-│ ├── modules/
-│ │ ├── serverExpress.ts # Express.js server setup and configurations
-│ │ └── index.ts # Entry point for the server modules
-├── .env.example # Example file for environment variables
-├── main.js # Main file for running the application
-├── package.json # Contains project metadata and dependencies
-├── package-lock.json # Lockfile for exact dependency versions
-├── README.md # Project documentation (this file)
-└── tsconfig.json # TypeScript configuration file
+│ │ ├── pages/
+│ │ │ ├── Configs/ # Configuration pages or settings
+│ │ │ ├── Credits/ # Credits page for developers or contributors
+│ │ │ ├── Home/ # Homepage for the forum
+│ │ │ ├── Login/ # Login page for user authentication
+│ │ │ ├── Perfil/ # User profile page
+│ │ │ │ ├── Perfil.html # HTML structure for the profile page
+│ │ │ │ └── script.js # JavaScript for interactivity in the profile page
+│ │ │ ├── Post/ # Page for creating and viewing posts
+│ │ │ ├── Register/ # Registration page for new users
+│ │ │ ├── Topics/ # Topics overview page
+│ │ │ │ └── script.js # JavaScript for handling topic interactions
+│ │ │ └── style.css # Global CSS styles for all pages
+├──src/
+│ ├── server/
+│ │ ├── DB/
+│ │ │ └── models/
+│ │ │ ├── post.model.ts # Defines the MongoDB schema for posts
+│ │ │ ├── user.model.ts # Defines the MongoDB schema for users
+│ │ │ └── connect.ts # Handles MongoDB connection logic
+│ │ ├── modules/
+│ │ │ ├── serverExpress.ts # Express.js server setup and configurations
+│ │ │ └── index.ts # Entry point for the server modules
+│ ├── .env.example # Example file for environment variables
+│ ├── main.js # Main file for running the application
+│ ├── package.json # Contains project metadata and dependencies
+│ ├── package-lock.json # Lockfile for exact dependency versions
+│ ├── README.md # Project documentation (this file)
+│ └── tsconfig.json # TypeScript configuration file
 ```
 
 
@@ -84,4 +88,6 @@ We aim to:
 - Foster real-time communication and collaboration.  
 - Deliver a secure, engaging, and intuitive platform.  
 
-**Join us in shaping the future of forums!** 🚀  
+```bash
+**Join us in shaping the future of forums!** 🚀
+```
