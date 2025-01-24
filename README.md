@@ -1,4 +1,4 @@
-# Infinite Voices 🗣️ 
+<h1 align="center">🎆 Infinite Voices 🎆</h1>
 
 <br>
 
@@ -91,3 +91,7 @@ We aim to:
 ```bash
 **Join us in shaping the future of forums!** 🚀
 ```
+
+<br>
+
+![boardprofile](https://github.com/user-attachments/assets/171da039-5822-4054-b2fd-8c3017f6e100)
