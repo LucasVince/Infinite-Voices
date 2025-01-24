@@ -46,12 +46,12 @@ Infinite Voices/
 │ │ ├── modules/
 │ │ │ ├── serverExpress.ts # Express.js server setup and configurations
 │ │ │ └── index.ts # Entry point for the server modules
-│ ├── .env.example # Example file for environment variables
-│ ├── main.js # Main file for running the application
-│ ├── package.json # Contains project metadata and dependencies
-│ ├── package-lock.json # Lockfile for exact dependency versions
-│ ├── README.md # Project documentation (this file)
-│ └── tsconfig.json # TypeScript configuration file
+├── .env.example # Example file for environment variables
+├── main.js # Main file for running the application
+├── package.json # Contains project metadata and dependencies
+├── package-lock.json # Lockfile for exact dependency versions
+├── README.md # Project documentation (this file)
+└── tsconfig.json # TypeScript configuration file
 ```
 
 
