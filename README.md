@@ -22,8 +22,7 @@ The project is organized as follows:
 ```plaintext
 Infinite Voices/
 ├── dist/
-│ └── [Compiled and distributed files]
-├── client/
+│ ├── client/
 │ │ ├── pages/
 │ │ │ ├── Configs/ # Configuration pages or settings
 │ │ │ ├── Credits/ # Credits page for developers or contributors
