@@ -1,5 +1,8 @@
-# Infinite Voices 🗣️ - Documentation  
+# Infinite Voices 🗣️ 
 
+<br>
+
+![Image](https://github.com/user-attachments/assets/4bdba1b7-2906-467a-94c9-d9a6705afb71)
 ---
 
 ## 🎉 What is **Infinite Voices**?  
@@ -9,9 +12,6 @@
 - Built using **TypeScript** — the language taking the development world by storm! 🏆  
 - **TypeScript** provides the **safety** and **efficiency** you need with static typing, enabling rapid development and bug-free code. ✨  
 - This project demonstrates our expertise with **TypeScript** and cutting-edge technologies. With **TypeScript**, we’ve created a highly scalable and maintainable forum, proving that it can power robust and modern systems. 💡  <br><br>
-
-
-![Image](https://github.com/user-attachments/assets/4bdba1b7-2906-467a-94c9-d9a6705afb71)
 
 ---
 
