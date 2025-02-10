@@ -41,11 +41,12 @@ nav span {
 
 main {
     padding: 20px;
+    margin-bottom: 155px;
+    width: 75%;
+    gap: 50px;
+    justify-self: center;   
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 100px;
-    margin-bottom: 100px;
 }
 
 footer {
@@ -63,6 +64,7 @@ footer {
     align-items: center;
     margin-top: auto;
     width: 50%;
+    align-self: center;
 }
 
 .chat-input input[type="text"] {
@@ -87,6 +89,17 @@ footer {
     background-color: #ff0000;
 }
 
+.posts-container {
+    background-color: #ffffff;
+    border: 2px solid #000080;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
 .post {
     width: 750px;
     display: flex;
@@ -99,7 +112,7 @@ footer {
     justify-content: space-between;
 }
 
-.post-header #infos {
+.infos {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -111,18 +124,22 @@ footer {
     border-radius: 50%;
 }
 
-.post-header #tags p {
+.post-header .tags p {
     background-color: #ffcc0040;
 }
 
-#tags {
+.tags {
     display: flex;
     gap: 20px;
 }
 
-#tags p {
+.tags p {
     padding: 3px;
     border-radius: 3px;
+}
+
+.posts-content h1 {
+    text-align: center;
 }
 
 .post-atachments {

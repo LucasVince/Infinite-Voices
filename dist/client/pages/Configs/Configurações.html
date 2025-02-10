@@ -15,14 +15,43 @@
         <a href="../Home/Home.html">Home</a>
         <a href="../Post/Post.html">Post</a>
         <a href="../Topics/Topics.html">Topics</a>
-        <a href="../Perfil/Perfil.html">Perfil</a>
+        <a href="../Perfil/Perfil.html">Profile</a>
         <a href="#">Configs</a>
-        <span id="logout">Sair</span>
+        <span id="logout">Logout</span>
         <a href="../Credits/Credits.html">Credits</a>
     </nav>
     <main>
-        
-    </main>
+        <section id="configs">
+            <h2>Configs</h2>
+            <form id="settings-form">
+                <div class="form-group">
+                    <label for="theme">Theme:</label>
+                    <select id="theme" name="theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="language">Lenguage:</label>
+                    <select id="language" name="language">
+                        <option value="en">English</option>
+                        <option value="pt">Portugues</option>
+                        <option value="es">Spanish</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="password">Recover your Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Nova senha">
+                </div>
+    
+                <div class="form-actions">
+                    <button type="submit">Save Configs</button>
+                </div>
+            </form>
+        </section>
+    </main>    
     <footer>
         &copy; 2025 Infinite Voices. All rights reserved.
     </footer>

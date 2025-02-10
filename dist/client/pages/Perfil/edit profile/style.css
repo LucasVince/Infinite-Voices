@@ -24,15 +24,8 @@ nav {
     box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25); 
 }
 
-nav a {
+nav a, nav span {
     color: #000080; 
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav span {
-    color: #000080;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -54,6 +47,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
 .profile-container {
     background-color: #ffffff;
     border: 2px solid #000080;
@@ -69,7 +63,22 @@ footer {
 }
 
 .profile-header {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#username {
+    width: 180px;
+}
+
+#bio {
+    width: 250px;
+}
+
+#temporary-message {
+    width: 260px;
 }
 
 .profile-picture {
@@ -123,7 +132,7 @@ footer {
     gap: 20px;
 }
 
-.btn {
+.btn-edit-profile {
     background-color: #000080;
     color: #ffffff;
     border: none;
@@ -134,15 +143,25 @@ footer {
     box-shadow: 2px 2px #ff0000;
 }
 
-.btn:hover {
+.btn-edit-profile:hover {
     background-color: #ff0000;
 }
 
-.delete-acount {
-    background-color: #ff0000;
-    box-shadow: 2px 2px #000080;
-}
-
-.delete-acount:hover {
+input, select {
+    border: 2px solid #000080;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000080;
+    background-color: #ffffff;
     box-shadow: 2px 2px #ff0000;
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+.profile-bio, .profile-name {
+    width: 100%;
+    text-align: center;
 }

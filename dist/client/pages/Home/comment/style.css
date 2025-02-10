@@ -58,83 +58,68 @@ footer {
     width: 100%;
 }
 
-.posts-container {
+.post-detail-container {
     background-color: #ffffff;
     border: 2px solid #000080;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 100px;
+    margin-bottom: 20px;
 }
 
-.post {
-    width: 750px;
-    display: flex;
-    flex-direction: column;
+.comments-section {
+    margin-top: 30px;
 }
 
-.post-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.infos {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.post-header img {
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-}
-
-.post-header .tags p {
-    background-color: #ffcc0040;
-}
-
-.tags {
-    display: flex;
-    gap: 20px;
-}
-
-.tags p {
-    padding: 3px;
-    border-radius: 3px;
-}
-
-.posts-content h1 {
-    text-align: center;
-}
-
-.post-atachments {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.post-atachments img {
+.comments-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
     border-radius: 5px;
 }
 
-.delete-div {
-    display: flex;
-    justify-content: end;
-    align-items: center;
+.comments-container div {
+    margin-bottom: 10px;
 }
 
-#delete-button {
-    border: solid 2px #ff0000;
-    padding: 5px 5px;
-    border-radius: 3px;
+.comments-container p {
+    margin: 5px 0;
+}
+
+.add-comment {
+    margin-top: 20px;
+}
+
+#comment-text {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#submit-comment {
+    background-color: #000080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+#submit-comment:hover {
+    background-color: #ffcc00;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #000080;
+    font-size: 1.5em;
     font-weight: bold;
 }
 
-#delete-button:hover {
-    background-color: #ff0000;
+.post-link:hover {
+    color: #ffcc00;
 }

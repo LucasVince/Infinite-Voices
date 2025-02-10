@@ -85,14 +85,7 @@ footer {
     overflow-x: hidden;
 }
 
-.chat-header {
-    color: #000080;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.chat-messages {
+.chat-message {
     flex-grow: 1;
     max-height: 400px;
     overflow-y: auto;
@@ -100,11 +93,11 @@ footer {
     padding-right: 10px;
 }
 
-.chat-messages::-webkit-scrollbar {
+.chat-message::-webkit-scrollbar {
     width: 8px;
 }
 
-.chat-messages::-webkit-scrollbar-thumb {
+.chat-message::-webkit-scrollbar-thumb {
     background-color: #ff0000;
     border-radius: 10px;
 }
@@ -119,18 +112,29 @@ footer {
 
 .chat-input {
     display: flex;
-    align-items: center;
-    margin-top: auto;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.chat-input input[type="text"] {
-    flex: 1;
+.tag-container {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input[type="text"],
+.chat-input textarea {
     padding: 10px;
     border: 2px solid #000080;
     border-radius: 5px;
-    margin-right: 10px;
+    width: 98.6%;
+    resize: none;
 }
 
+.chat-input textarea {
+    height: 100px;
+}
+
+.tag-container button,
 .chat-input button {
     background-color: #000080;
     color: #ffffff;
@@ -141,6 +145,78 @@ footer {
     box-shadow: 2px 2px #ff0000;
 }
 
+.tag-container button:hover,
 .chat-input button:hover {
     background-color: #ff0000;
+}
+
+.chat-message {
+    background-color: #ffffff;
+    border: 2px solid #000080;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+.post {
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-header img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.post-header .tags p {
+    background-color: #ffcc0040;
+}
+
+.tags {
+    display: flex;
+    gap: 20px;
+}
+
+.tags p {
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.tags button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #000080;
+    font-weight: bolder;
+}
+
+.posts-content h1 {
+    text-align: center;
+}
+
+.post-atachments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-atachments img {
+    border-radius: 5px;
 }

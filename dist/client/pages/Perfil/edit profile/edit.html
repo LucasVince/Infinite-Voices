@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="../script.js" defer></script>
     <script src="script.js" defer></script>
     <title></title>
 </head>
@@ -12,21 +11,12 @@
     <header>
         Infinite Voices Forum
     </header>
-    <nav>
-        <a href="../Home/Home.html">Home</a>
-        <a href="../Post/Post.html">Post</a>
-        <a href="../Topics/Topics.html">Topics</a>
-        <a href="#">Profile</a>
-        <a href="../Configs/Configurações.html">Configs</a>
-        <span id="logout">Logout</span>
-        <a href="../Credits/Credits.html">Credits</a>
-    </nav>
     <main>
         <div class="profile-container">
             <div class="profile-header">
-                <img src="../../imgs/avatar_default.jpg" class="profile-picture">
-                <h2 class="profile-name">Username</h2>
-                <p class="profile-bio">"Your bio goes here. Share something about yourself!"</p>
+                <img src="../../../imgs/avatar_send_file.jpg" class="profile-picture">
+                <input id="username" type="text" placeholder="Type your new username">
+                <input id="bio" type="text" placeholder="Share something about yourself!">
             </div>
             <div class="profile-info">
                 <h3>User Info</h3>
@@ -34,13 +24,18 @@
                     <li><strong>Email:</strong> </li>
                     <li><strong>Register Date:</strong> </li>
                     <li><strong>Created Posts:</strong> </li>
-                    <li><strong>Status:</strong> </li>
-                    <li><strong>Temporary Message:</strong> </li>
+                    <li><strong>Status:</strong> <select id="status">
+                        <option value="online">online</option>
+                        <option value="offline">offline</option>
+                        <option value="busy">busy</option>
+                        <option value="away">away</option>
+                    </select></li>
+                    <li><strong>Temporary Message:</strong> <input id="temporary-message" type="text" placeholder="Type something you are doing now"></li>
                 </ul>
             </div>
             <div class="profile-actions">
-                <a href="edit profile/edit.html"><button class="btn edit-profile">Edit Profile</button></a>
-                <button class="btn delete-acount">Delete account</button>
+                <button class="btn-edit-profile">Save Changes</button>
+                <button class="btn-edit-profile">Cancel</button>
             </div>
         </div>
     </main>

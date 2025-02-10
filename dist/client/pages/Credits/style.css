@@ -42,7 +42,7 @@ nav span {
 main {
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
 
 footer {
@@ -55,35 +55,26 @@ footer {
     width: 100%;
 }
 
-.card {
-    background-color: #ffffff;
-    border: 2px solid #000080; 
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 5px 5px #ff0000; 
-}
-
-.card h2 {
-    color: #000080; 
-}
-
-.card p {
-    color: #000080; 
-}
-
 .credits-container {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     align-items: center;
-    justify-content: center;
-    height: 65vh;
 }
 
 .credit-item {
     display: flex;
+    justify-self: center;
     align-items: center;
     margin: 20px 0;
+    background-color: #ffffff;
+    border: 2px solid #000080;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    gap: 75px;
+    justify-content: center;
 }
 
 .profile-pic {
@@ -96,6 +87,7 @@ footer {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .profile-pic img {
@@ -105,5 +97,54 @@ footer {
 
 .profile-info h2 {
     color: #000080;
+    margin: 0;
     font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+}
+
+.profile-info a {
+    color: #000080;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    margin-top: 5px;
+}
+
+.profile-info p {
+    color: #000080;
+    font-size: 0.9em;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 2px solid #000080;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.stats div {
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.stats h3 {
+    color: #000080;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+}
+
+.stats p {
+    color: #000000;
+    font-size: 1em;
+    margin: 0;
+    font-weight: bold;
 }

@@ -20,6 +20,7 @@ document.getElementById('logout').addEventListener('click', async () => {
         }
 
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
         window.location.href = '../Login/index.html';
     } catch (err) {
         console.log(err.message);
