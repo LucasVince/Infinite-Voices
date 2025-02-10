@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 import userModel from '../DB/models/user.model';
+import postModel from '../DB/models/post.model';
 
 app.use(express.json());
 app.use(cors());
@@ -22,9 +23,10 @@ app.post('/register', async (req:any, res:any) => {
             return res.status(400).json({message: 'Informações faltando'});
         }
 
-        const userExists = await userModel.findOne({ $or: [{ username, email}] });
+        const usernameTaken = await userModel.findOne({ username });
+        const emailTaken = await userModel.findOne({ email });
 
-        if(userExists) {
+        if(usernameTaken || emailTaken) {
             return res.status(400).json({ message: 'Este email ou o username já está foram pegos!'})
         }
 
@@ -37,7 +39,7 @@ app.post('/register', async (req:any, res:any) => {
         });
         
         const token = await jwt.sign({id: user._id, username: user.username}, process.env.REGISTER_USER_SECET_KEY as string, {expiresIn: '1h'});
-        return res.status(200).json({user, token});
+        return res.status(200).json({token, user });
     } catch (err) {
         if (err instanceof Error) {
             console.error(err);
@@ -62,7 +64,7 @@ app.post('/login', async(req:any, res:any)=> {
 
         const token = await jwt.sign({id: user._id, username: user.username}, process.env.LOGIN_USER_SECET_KEY as string, {expiresIn: '1h'});
 
-        return res.status(200).json({ token });
+        return res.status(200).json({ token, user });
     } catch (err) {
         if (err instanceof Error) {
             console.error(err);
@@ -70,6 +72,208 @@ app.post('/login', async(req:any, res:any)=> {
         } else {
             console.error(err);
             return res.status(500).json({ message: 'Erro Tentar Logar'});
+        }
+    }
+});
+
+app.get('/users', async (req: any, res: any) => {
+    const page = req.headers.page;
+
+    if (page == 'profile') {
+        const id = req.query.userID;
+
+        try {
+            const user = await userModel.findById(id);
+            return res.status(200).json({ user });
+        } catch (err) {
+            if (err instanceof Error) {
+                console.error(err);
+                return res.status(500).json({ message: err.message });
+            } else {
+                console.error(err);
+                return res.status(500).json({ message: 'Erro no serviidor, tente denovo mais tarde' });
+            }
+        }
+    }
+});
+
+app.put('/users', async (req:any, res:any) => {
+    const page = req.headers.page;
+
+    if (page == 'profile') {
+        try {
+            const { username, bio, status, temporaryMessage, userID } = req.body;
+    
+            if (!userID) {
+                return res.status(400).json({ message: 'userID is required' });
+            }
+    
+            const usernameAlreadyTaken = await userModel.findOne({ username: username });
+    
+            if (usernameAlreadyTaken && usernameAlreadyTaken._id != userID) {
+                return res.status(400).json({ message: 'username already taken, please, choose other' });
+            }
+    
+            if (username != '') {
+                await userModel.findByIdAndUpdate(userID, {
+                    username: username
+                }, {
+                    new: true,
+                    runValidators: true
+                });
+            }
+    
+            if (bio != '') {
+                await userModel.findByIdAndUpdate(userID, {
+                    bio: bio
+                }, {
+                    new: true,
+                    runValidators: true
+                });
+            }
+    
+            if (temporaryMessage != '') {
+                await userModel.findByIdAndUpdate(userID, {
+                    temporaryMessage: temporaryMessage
+                }, {
+                    new: true,
+                    runValidators: true
+                });
+            }
+    
+            if (status != '') {
+                await userModel.findByIdAndUpdate(userID, {
+                    status: status
+                }, {
+                    new: true,
+                    runValidators: true
+                });
+            }
+    
+            const user = await userModel.findByIdAndUpdate( userID );
+    
+            return res.status(200).json({ user });
+        } catch (err) {
+            if (err instanceof Error) {
+                console.error(err);
+                return res.status(500).json({ message: err.message });
+            } else {
+                console.error(err);
+                return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
+            }
+        }
+    }
+});
+
+app.get('/posts', async (req:any, res:any) => {
+    const page  = req.headers.page;
+
+    if (page == 'home') {
+        const currentPage = req.query.currentPage;
+
+        try {
+            const posts = await postModel.find({}).skip(10 * currentPage).limit(10).populate('author').exec();
+    
+            return res.status(200).json({posts});
+        } catch (err) {
+            if (err instanceof Error) {
+                console.error(err);
+                return res.status(500).json({ message: err.message });
+            } else {
+                console.error(err);
+                return res.status(500).json({ message: 'Erro no servidor, tente denove mais tarde' });
+            }
+        }
+    }
+
+    if (page == 'topics') {
+        const search = req.query.search;
+        
+        try {
+            const posts = await postModel.find({
+                $or: [
+                    { title: { $regex: search, $options: 'i' } },
+                    { tags: { $in: [search]}}
+                ]
+            }).limit(100).populate('author').exec();
+            
+            return res.status(200).json({posts});
+        } catch (err) {
+            if (err instanceof Error) {
+                console.error(err);
+                return res.status(500).json({ message: err.message });
+            } else {
+                console.error(err);
+                return res.status(500).json({ message: 'Erro no serviidor, tente denove mais tarde' });
+            }
+        }
+    }
+});
+
+app.post('/posts', async (req: any, res: any) => {
+    const { title, message, user, tags } = req.body;
+
+    try {
+        const author = user._id;
+
+        if (!author) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const post = await postModel.create({
+            title: title,
+            content: message,
+            author: author,
+            tags: tags || []
+        });
+
+        await userModel.findByIdAndUpdate(author, {
+            $inc: { posts: 1 }
+        }, {
+            new: true,
+            runValidators: true
+        }).exec();
+
+        return res.status(200).json({ post });
+    } catch (err) {
+        if (err instanceof Error) {
+            console.error(err);
+            return res.status(500).json({ message: err.message });
+        } else {
+            console.error(err);
+            return res.status(500).json({ message: 'Erro No servidor, tente denove mais tarde' });
+        }
+    }
+});
+
+app.delete('/posts', async (req: any, res: any) => {
+    const page = req.headers.page;
+
+    if (page == 'home') {
+        const postId = req.query.postId;
+        try {
+            const post = await postModel.findByIdAndDelete(postId);
+
+            if (!post) {
+                return res.status(404).json({ message: 'Post not found' });
+            }
+
+            await userModel.findByIdAndUpdate(post.author, {
+                $inc: { posts: -1 }
+            }, {
+                new: true,
+                runValidators: true
+            }).exec();
+
+            return res.status(200).json({ post });
+        } catch (err) {
+            if (err instanceof Error) {
+                console.error(err);
+                return res.status(500).json({ message: err.message });
+            } else {
+                console.error(err);
+                return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
+            }
         }
     }
 });
@@ -82,14 +286,10 @@ app.post('/logout', (req: any, res: any) => {
     }
 
     try {
-        jwt.verify(token, process.env.LOGIN_USER_SECET_KEY as string, (err: any, decoded: any) => {
-            if (err) {
-                return res.status(401).json({ message: 'Invalid token' });
-            }
-
+        if (!tokenBlacklist.has(token)) {
             tokenBlacklist.add(token);
-            return res.status(200).json({ message: 'Logged out successfully' });
-        });
+        }
+        return res.status(200).json({ message: 'Logged out sucessfuly' });
     } catch (err) {
         if (err instanceof Error) {
             console.error(err);
