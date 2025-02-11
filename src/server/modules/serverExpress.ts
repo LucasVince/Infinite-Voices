@@ -6,10 +6,18 @@ const cors = require('cors');
 import userModel from '../DB/models/user.model';
 import postModel from '../DB/models/post.model';
 
+const tokenBlacklist = new Set();
+
 app.use(express.json());
 app.use(cors());
 
-const tokenBlacklist = new Set();
+app.use((req: any, res: any, next: any) => {
+    const token = req.headers['authorization']?.split(' ')[1];
+    if (token && tokenBlacklist.has(token)) {
+        return res.status(401).json({ message: 'Token is blacklisted' });
+    }
+    next();
+});
 
 app.get('/', (req: any, res: any) => {
     return res.status(200).send('Welcome');
@@ -278,6 +286,32 @@ app.delete('/posts', async (req: any, res: any) => {
     }
 });
 
+app.post('/deleteAccount', async (req:any, res:any) => {
+    const { userID, password, token } = req.body;
+
+    if (!token) {
+        return res.status(400).json({ message: 'Token is required' });
+    }
+
+    try {
+        if (!tokenBlacklist.has(token)) {
+            tokenBlacklist.add(token);
+        }
+        
+        await userModel.findByIdAndDelete(userID);
+
+        return res.status(200).json({ message: 'Logged out sucessfuly' });
+    } catch(err) {
+        if (err instanceof Error) {
+            console.error(err);
+            return res.status(500).json({ message: err.message });
+        } else {
+            console.error(err);
+            return res.status(500).json({ message: 'Error logging out' });
+        }
+    }
+});
+
 app.post('/logout', (req: any, res: any) => {
     const { token } = req.body;
 
@@ -299,14 +333,6 @@ app.post('/logout', (req: any, res: any) => {
             return res.status(500).json({ message: 'Error logging out' });
         }
     }
-});
-
-app.use((req: any, res: any, next: any) => {
-    const token = req.headers['authorization']?.split(' ')[1];
-    if (token && tokenBlacklist.has(token)) {
-        return res.status(401).json({ message: 'Token is blacklisted' });
-    }
-    next();
 });
 
 app.listen(8080, () => console.log('app running on port 8080'));
