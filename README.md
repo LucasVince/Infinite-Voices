@@ -371,4 +371,15 @@ With **Infinite Voices**, we aim to:
 
 <br>
 
+## 📃 Credits
+
+### Contributors:
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="https://github.com/GabrielNat1.png" alt="Colaborador 1" width="40" height="40">
+  <img src="https://github.com/LucasVince.png" alt="Colaborador 2" width="40" height="40">
+</div>
+
+<br><br>
+
 ![Image](https://github.com/user-attachments/assets/171da039-5822-4054-b2fd-8c3017f6e100)
