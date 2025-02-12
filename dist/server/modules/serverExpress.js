@@ -19,9 +19,20 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 const user_model_1 = __importDefault(require("../DB/models/user.model"));
 const post_model_1 = __importDefault(require("../DB/models/post.model"));
+<<<<<<< HEAD
+const tokenBlacklist = new Set();
+=======
+>>>>>>> 8d1c0568f42a134326c3b122c6760b8719678014
 app.use(express.json());
 app.use(cors());
-const tokenBlacklist = new Set();
+app.use((req, res, next) => {
+    var _a;
+    const token = (_a = req.headers['authorization']) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
+    if (token && tokenBlacklist.has(token)) {
+        return res.status(401).json({ message: 'Token is blacklisted' });
+    }
+    next();
+});
 app.get('/', (req, res) => {
     return res.status(200).send('Welcome');
 });
@@ -261,6 +272,40 @@ app.delete('/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* (
         }
     }
 }));
+<<<<<<< HEAD
+app.post('/deleteAccount', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userID, password, token } = req.body;
+    if (!token) {
+        return res.status(400).json({ message: 'Token is required' });
+    }
+    try {
+        const user = yield user_model_1.default.findById(userID);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        const passwordCompare = yield bcrypt.compare(password, user.password);
+        if (!passwordCompare) {
+            return res.status(400).json({ message: 'wrong password boy' });
+        }
+        yield user_model_1.default.findByIdAndDelete(userID);
+        if (!tokenBlacklist.has(token)) {
+            tokenBlacklist.add(token);
+        }
+        return res.status(200).json({ message: 'Logged out sucessfuly' });
+    }
+    catch (err) {
+        if (err instanceof Error) {
+            console.error(err);
+            return res.status(500).json({ message: err.message });
+        }
+        else {
+            console.error(err);
+            return res.status(500).json({ message: 'Error logging out' });
+        }
+    }
+}));
+=======
+>>>>>>> 8d1c0568f42a134326c3b122c6760b8719678014
 app.post('/logout', (req, res) => {
     const { token } = req.body;
     if (!token) {
@@ -282,13 +327,5 @@ app.post('/logout', (req, res) => {
             return res.status(500).json({ message: 'Error logging out' });
         }
     }
-});
-app.use((req, res, next) => {
-    var _a;
-    const token = (_a = req.headers['authorization']) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
-    if (token && tokenBlacklist.has(token)) {
-        return res.status(401).json({ message: 'Token is blacklisted' });
-    }
-    next();
 });
 app.listen(8080, () => console.log('app running on port 8080'));

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     background-color: #F0F0F0; 
     color: #000080; 
@@ -165,3 +166,172 @@ input:focus, select:focus {
     width: 100%;
     text-align: center;
 }
+=======
+body {
+    background-color: #F0F0F0; 
+    color: #000080; 
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #000080; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #ff0000; 
+}
+
+nav {
+    background-color: #ffffff; 
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25); 
+}
+
+nav a, nav span {
+    color: #000080; 
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #000080;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.profile-container {
+    background-color: #ffffff;
+    border: 2px solid #000080;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 5px 5px #ff0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#username {
+    width: 180px;
+}
+
+#bio {
+    width: 250px;
+}
+
+#temporary-message {
+    width: 260px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #000080;
+    box-shadow: 3px 3px #ff0000;
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    color: #000080;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.profile-bio {
+    color: #000080;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.profile-info {
+    background-color: #f0f0f0;
+    border: 1px solid #000080;
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 3px 3px #ff0000;
+}
+
+.profile-info h3 {
+    color: #000080;
+    text-align: center;
+}
+
+.profile-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #000080;
+}
+
+.profile-info li {
+    margin: 10px 0;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-edit-profile {
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 2px 2px #ff0000;
+}
+
+.btn-edit-profile:hover {
+    background-color: #ff0000;
+}
+
+input, select {
+    border: 2px solid #000080;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000080;
+    background-color: #ffffff;
+    box-shadow: 2px 2px #ff0000;
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+.profile-bio, .profile-name {
+    width: 100%;
+    text-align: center;
+}
+>>>>>>> 8d1c0568f42a134326c3b122c6760b8719678014

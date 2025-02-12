@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     background-color: #F0F0F0; 
     color: #000080; 
@@ -150,4 +151,158 @@ footer {
 
 .post-atachments img {
     border-radius: 5px;
+=======
+body {
+    background-color: #F0F0F0; 
+    color: #000080; 
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #000080; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #ff0000; 
+}
+
+nav {
+    background-color: #ffffff; 
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25); 
+}
+
+nav a {
+    color: #000080; 
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav span {
+    color: #000080;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+    margin-bottom: 155px;
+    width: 75%;
+    gap: 50px;
+    justify-self: center;   
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #000080;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    width: 50%;
+    align-self: center;
+}
+
+.chat-input input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #000080;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px #ff0000;
+}
+
+.chat-input button:hover {
+    background-color: #ff0000;
+}
+
+.posts-container {
+    background-color: #ffffff;
+    border: 2px solid #000080;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+.post {
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-header img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.post-header .tags p {
+    background-color: #ffcc0040;
+}
+
+.tags {
+    display: flex;
+    gap: 20px;
+}
+
+.tags p {
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.posts-content h1 {
+    text-align: center;
+}
+
+.post-atachments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-atachments img {
+    border-radius: 5px;
+>>>>>>> 8d1c0568f42a134326c3b122c6760b8719678014
 }

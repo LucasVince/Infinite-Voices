@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     background-color: #F0F0F0; 
     color: #000080; 
@@ -44,4 +45,52 @@ input {
     color: #000080;
     background-color: #ffffff;
     box-shadow: 2px 2px #ff0000;
+=======
+body {
+    background-color: #F0F0F0; 
+    color: #000080; 
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: #000080 10px solid;
+    border-radius: 25px;
+    box-shadow: 5px 5px #ff0000;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 600px
+}
+
+button {
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 2px 2px #ff0000;
+}
+
+input {
+    border: 2px solid #000080;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000080;
+    background-color: #ffffff;
+    box-shadow: 2px 2px #ff0000;
+>>>>>>> 8d1c0568f42a134326c3b122c6760b8719678014
 }
