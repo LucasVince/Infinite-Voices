@@ -295,7 +295,7 @@ app.post('/deleteAccount', async (req:any, res:any) => {
 
     try {
         const user = await userModel.findById(userID);
-
+        
         if (!user) {
             return res.status(404).json({ message: 'User Not Found' });
         }

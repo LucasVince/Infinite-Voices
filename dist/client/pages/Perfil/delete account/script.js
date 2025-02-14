@@ -13,11 +13,13 @@ btnTerminate.addEventListener('click', async () => {
             body: JSON.stringify({userID, password, token})
         });
 
-        const data = await response.json;
+        const data = await response.json();
 
         if (!response.ok) {
             throw new Error(data.message);
         }
+
+        window.location = '../../Login/index.html';
     } catch(err) {
         alert(err);
         console.log(err);
