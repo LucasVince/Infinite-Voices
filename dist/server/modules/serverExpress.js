@@ -19,10 +19,7 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 const user_model_1 = __importDefault(require("../DB/models/user.model"));
 const post_model_1 = __importDefault(require("../DB/models/post.model"));
-<<<<<<< HEAD
 const tokenBlacklist = new Set();
-=======
->>>>>>> 8d1c0568f42a134326c3b122c6760b8719678014
 app.use(express.json());
 app.use(cors());
 app.use((req, res, next) => {
@@ -272,7 +269,6 @@ app.delete('/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* (
         }
     }
 }));
-<<<<<<< HEAD
 app.post('/deleteAccount', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userID, password, token } = req.body;
     if (!token) {
@@ -281,17 +277,17 @@ app.post('/deleteAccount', (req, res) => __awaiter(void 0, void 0, void 0, funct
     try {
         const user = yield user_model_1.default.findById(userID);
         if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(404).json({ message: 'User Not Found' });
         }
-        const passwordCompare = yield bcrypt.compare(password, user.password);
-        if (!passwordCompare) {
-            return res.status(400).json({ message: 'wrong password boy' });
+        const isPasswordValid = yield bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(404).json({ message: 'Wrong password fella' });
         }
         yield user_model_1.default.findByIdAndDelete(userID);
         if (!tokenBlacklist.has(token)) {
             tokenBlacklist.add(token);
         }
-        return res.status(200).json({ message: 'Logged out sucessfuly' });
+        return res.status(200).json({ message: 'Account Delleted Successfully' });
     }
     catch (err) {
         if (err instanceof Error) {
@@ -304,8 +300,6 @@ app.post('/deleteAccount', (req, res) => __awaiter(void 0, void 0, void 0, funct
         }
     }
 }));
-=======
->>>>>>> 8d1c0568f42a134326c3b122c6760b8719678014
 app.post('/logout', (req, res) => {
     const { token } = req.body;
     if (!token) {

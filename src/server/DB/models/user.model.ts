@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Document, Schema, model } from 'mongoose';
 import internal from 'stream';
 interface IUser extends Document {
@@ -45,52 +44,4 @@ const userSchema = new Schema<IUser>({
 
 const userModel = model('User', userSchema);
 
-=======
-import { Document, Schema, model } from 'mongoose';
-import internal from 'stream';
-interface IUser extends Document {
-    username: string;
-    email: string;
-    password: string,
-    bio: string,
-    posts: number,
-    status: string,
-    temporaryMessage: string,
-    createdAt: Date,
-    avatar: string
-}
-
-const userSchema = new Schema<IUser>({
-    username: {
-        type: String, required: true
-    },
-    email: {
-        type: String, required: true
-    },
-    password: {
-        type: String, required: true
-    },
-    bio: {
-        type: String, required: false, default: null
-    },
-    posts: {
-        type: Number, required: true, default: 0
-    },
-    status: {
-        type: String, required: true, default: 'online'
-    },
-    temporaryMessage: {
-        type: String, required: false,  default: null
-    },
-    createdAt: {
-        type: Date, required: true, default: new Date()
-    },
-    avatar: {
-        type: String, required: false, default: null
-    }
-})
-
-const userModel = model('User', userSchema);
-
->>>>>>> 8d1c0568f42a134326c3b122c6760b8719678014
 export default userModel;
