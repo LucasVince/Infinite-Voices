@@ -20,6 +20,7 @@ btnTerminate.addEventListener('click', async () => {
         }
 
         window.location = '../../Login/index.html';
+        localStorage.clear();
     } catch(err) {
         alert(err);
         console.log(err);

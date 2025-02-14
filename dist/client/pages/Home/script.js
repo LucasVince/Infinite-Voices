@@ -68,10 +68,28 @@ const gerarPosts = post => {
 
             deleteButton.addEventListener('click', () => deletePost(el));
         }
+
+        const deleteDiv = document.createElement('div');
+        const deleteButton = document.createElement('button');
+        
+        deleteDiv.classList.add('comment-div');
+        deleteButton.id = 'comment-button';
+
+        divPost.appendChild(deleteDiv);
+        deleteDiv.appendChild(deleteButton);
+        deleteButton.textContent = 'Interact with the post';
+
+        deleteButton.addEventListener('click', () => window.location = './comment/comment.html');
     });
 }
 
 const deletePost = async post => {
+    const del = confirm('do you realy want to delete this post???');
+
+    if (!del) {
+        return;
+    }
+
     const postId = post._id;
     try {
         const response = await fetch(`http://localhost:8080/posts?postId=${postId}`, {
