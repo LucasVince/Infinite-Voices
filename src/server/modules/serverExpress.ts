@@ -286,7 +286,7 @@ app.delete('/posts', async (req: any, res: any) => {
     }
 });
 
-app.post('/deleteAccount', async (req:any, res:any) => {
+app.post('/deleteaccount', async (req:any, res:any) => {
     const { userID, password, token } = req.body;
 
     if (!token) {
@@ -294,32 +294,33 @@ app.post('/deleteAccount', async (req:any, res:any) => {
     }
 
     try {
-        const user = await userModel.findById(userID);
-        
+
+        const user = await userModel.findByIdAndDelete(userID);
+
         if (!user) {
-            return res.status(404).json({ message: 'User Not Found' });
+            return res.status(404).json({ message: 'user not found' });
         }
-        
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        
-        if (!isPasswordValid) {
-            return res.status(404).json({ message: 'Wrong password fella' });
+
+        const passwordValidation = await bcrypt.compare(password, user.password);
+
+        if (!passwordValidation) {
+            return res.status(400).json({ message: 'Wrong password fella' });
         }
-        
+
         await userModel.findByIdAndDelete(userID);
 
         if (!tokenBlacklist.has(token)) {
             tokenBlacklist.add(token);
         }
 
-        return res.status(200).json({ message: 'Account Delleted Successfully' });
+        return res.status(200).json({ message: 'Account Delleted Succesfully' });
     } catch(err) {
         if (err instanceof Error) {
             console.error(err);
             return res.status(500).json({ message: err.message });
         } else {
             console.error(err);
-            return res.status(500).json({ message: 'Error logging out' });
+            return res.status(500).json({ message: 'Error deleting account, try later' });
         }
     }
 });

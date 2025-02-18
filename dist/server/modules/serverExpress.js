@@ -269,25 +269,25 @@ app.delete('/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* (
         }
     }
 }));
-app.post('/deleteAccount', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post('/deleteaccount', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userID, password, token } = req.body;
     if (!token) {
         return res.status(400).json({ message: 'Token is required' });
     }
     try {
-        const user = yield user_model_1.default.findById(userID);
+        const user = yield user_model_1.default.findByIdAndDelete(userID);
         if (!user) {
-            return res.status(404).json({ message: 'User Not Found' });
+            return res.status(404).json({ message: 'user not found' });
         }
-        const isPasswordValid = yield bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-            return res.status(404).json({ message: 'Wrong password fella' });
+        const passwordValidation = yield bcrypt.compare(password, user.password);
+        if (!passwordValidation) {
+            return res.status(400).json({ message: 'Wrong password fella' });
         }
         yield user_model_1.default.findByIdAndDelete(userID);
         if (!tokenBlacklist.has(token)) {
             tokenBlacklist.add(token);
         }
-        return res.status(200).json({ message: 'Account Delleted Successfully' });
+        return res.status(200).json({ message: 'Account Delleted Succesfully' });
     }
     catch (err) {
         if (err instanceof Error) {
@@ -296,7 +296,7 @@ app.post('/deleteAccount', (req, res) => __awaiter(void 0, void 0, void 0, funct
         }
         else {
             console.error(err);
-            return res.status(500).json({ message: 'Error logging out' });
+            return res.status(500).json({ message: 'Error deleting account, try later' });
         }
     }
 }));

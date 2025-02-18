@@ -352,6 +352,198 @@ The project is under **continuous development** 🚧, constantly improving with 
 ---
 
 
+<<<<<<< HEAD
+## 📜 License  
+
+This project is licensed under the **MIT License**. 📝  
+
+---
+
+## 🎯 Vision  
+
+With **Infinite Voices**, we aim to:  
+- Create a platform that fosters real-time communication ⚡.  
+- Deliver unmatched scalability 🌱 to support millions of users.  
+- Provide an engaging and intuitive user experience 🤝.  
+
+```json
+**Join us in building the future of interactive forums! 🚀**  
+```
+![Image](https://github.com/user-attachments/assets/171da039-5822-4054-b2fd-8c3017f6e100)
+### `POST /register`
+- **Description:** Registers a new user.
+- **Request:**
+```json
+{
+  "username": "string",
+  "email": "string",
+  "password": "string"
+}
+```
+- **Response:**
+  - `200 OK`: Returns the token and user data.
+```json
+{
+  "token": "string",
+  "user": {
+    "_id": "string",
+    "username": "string",
+    "email": "string"
+  }
+}
+```
+  - `400 Bad Request`: Missing information or user already exists.
+```json
+{
+  "message": "Missing information or this email/username is already taken!"
+}
+```
+  - `500 Internal Server Error`: Server error.
+
+---
+
+### `POST /login`
+- **Description:** Logs in an existing user.
+- **Request:**
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+- **Response:**
+  - `200 OK`: Returns the token and user data.
+```json
+{
+  "token": "string",
+  "user": {
+    "_id": "string",
+    "username": "string",
+    "email": "string"
+  }
+}
+```
+  - `404 Not Found`: User or password is incorrect.
+```json
+{
+  "message": "User not found or incorrect password"
+}
+```
+  - `500 Internal Server Error`: Server error.
+
+---
+
+### `POST /logout`
+- **Description:** Logs out a user and invalidates their token.
+- **Request:**
+```json
+{
+  "token": "string"
+}
+```
+- **Response:**
+  - `200 OK`: Logout successful.
+```json
+{
+  "message": "Logged out successfully"
+}
+```
+  - `400 Bad Request`: Token is required.
+```json
+{
+  "message": "Token is required"
+}
+```
+  - `500 Internal Server Error`: Server error.
+
+---
+
+## 📝 Post Management
+
+### `GET /posts`
+- **Description:** Retrieves all registered posts.
+- **Response:**
+  - `200 OK`: List of posts.
+```json
+{
+  "posts": [
+    {
+      "_id": "string",
+      "title": "string",
+      "content": "string",
+      "author": {
+        "_id": "string",
+        "username": "string"
+      },
+      "tags": ["string"]
+    }
+  ]
+}
+```
+  - `500 Internal Server Error`: Server error.
+
+---
+
+### `POST /posts`
+- **Description:** Creates a new post.
+- **Request:**
+```json
+{
+  "title": "string",
+  "message": "string",
+  "user": {
+    "_id": "string"
+  },
+  "tags": ["string"]
+}
+```
+- **Response:**
+  - `200 OK`: Post created successfully.
+```json
+{
+  "post": {
+    "_id": "string",
+    "title": "string",
+    "content": "string",
+    "author": "string",
+    "tags": ["string"]
+  }
+}
+```
+  - `404 Not Found`: User not found.
+```json
+{
+  "message": "User not found"
+}
+```
+  - `500 Internal Server Error`: Server error.
+
+---
+
+## 🔐 Security Middleware
+
+### Token Blacklist
+- **Description:** Middleware to check if the token is blacklisted.
+- **Error:**
+  - `401 Unauthorized`: Token is blacklisted.
+```json
+{
+  "message": "Token is blacklisted"
+}
+```
+
+---
+
+## 🚀 Startup
+### Server
+- **Port:** `8080`
+- **Message:** `app running on port 8080`
+
+---
+
+
+=======
+>>>>>>> b609fbad4e5027f6a2f02221d1b32012b803b27a
 ## 📜 License  
 
 This project is licensed under the **MIT License**. 📝  

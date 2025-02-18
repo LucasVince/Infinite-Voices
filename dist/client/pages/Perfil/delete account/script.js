@@ -1,13 +1,24 @@
 const passwordInput = document.querySelector('#password');
 const btnTerminate = document.querySelector('#terminate');
 
+const password = passwordInput.value;
+const token = localStorage.getItem('token');
+const userID = JSON.parse(localStorage.getItem('user'))._id;
+
+if (!token) {
+    window.location = '../../Login/index.html';
+}
+
 btnTerminate.addEventListener('click', async () => {
-    const password = passwordInput.value;
-    const token = localStorage.getItem('token');
-    const userID = JSON.parse(localStorage.getItem('user'))._id;
+    const question = confirm('Terminate???');
+
+    if (!question) {
+        window.location = '../../Perfil/Perfil.html';
+        return;
+    }
 
     try {
-        const response = await fetch('http://localhost:8080/deleteAccount', {
+        const response = await fetch('http://localhost:8080/deleteaccount', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({userID, password, token})
@@ -19,7 +30,7 @@ btnTerminate.addEventListener('click', async () => {
             throw new Error(data.message);
         }
 
-        window.location = '../../Login/index.html';
+        window.location = '../../Register/index.html';
         localStorage.clear();
     } catch(err) {
         alert(err);

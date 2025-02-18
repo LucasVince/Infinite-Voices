@@ -1,3 +1,9 @@
+const token = localStorage.getItem('token');
+
+if (!token) {
+    window.location = '../../Login/index.html';
+}
+
 const changeElements = user => {
 
     const email = document.querySelectorAll('li')[0];
