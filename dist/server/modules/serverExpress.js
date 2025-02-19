@@ -42,7 +42,7 @@ app.post('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         const usernameTaken = yield user_model_1.default.findOne({ username });
         const emailTaken = yield user_model_1.default.findOne({ email });
         if (usernameTaken || emailTaken) {
-            return res.status(400).json({ message: 'Este email ou o username já está foram pegos!' });
+            return res.status(400).json({ message: 'this email or name is already in use!' });
         }
         const hashedPassword = yield bcrypt.hash(password, 10);
         const user = yield user_model_1.default.create({
@@ -60,7 +60,7 @@ app.post('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }
         else {
             console.error(err);
-            res.status(500).json({ message: 'Erro ao registrar o usuario' });
+            res.status(500).json({ message: 'erro register user' });
         }
     }
 }));
@@ -69,10 +69,10 @@ app.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         const user = yield user_model_1.default.findOne({ email: email });
         if (!user)
-            return res.status(404).json({ message: 'usuario não encontrado' });
+            return res.status(404).json({ message: 'user is not found' });
         const isPasswordValid = yield bcrypt.compare(password, user.password);
         if (!isPasswordValid)
-            return res.status(404).json({ message: 'senha incorreta' });
+            return res.status(404).json({ message: 'password incorrect' });
         const token = yield jwt.sign({ id: user._id, username: user.username }, process.env.LOGIN_USER_SECET_KEY, { expiresIn: '1h' });
         return res.status(200).json({ token, user });
     }
@@ -83,7 +83,7 @@ app.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         }
         else {
             console.error(err);
-            return res.status(500).json({ message: 'Erro Tentar Logar' });
+            return res.status(500).json({ message: 'Error login' });
         }
     }
 }));
@@ -102,7 +102,7 @@ app.get('/users', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             }
             else {
                 console.error(err);
-                return res.status(500).json({ message: 'Erro no serviidor, tente denovo mais tarde' });
+                return res.status(500).json({ message: 'Error the server, try again more later' });
             }
         }
     }
@@ -161,7 +161,7 @@ app.put('/users', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             }
             else {
                 console.error(err);
-                return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
+                return res.status(500).json({ message: 'Error the server, try again more later' });
             }
         }
     }
@@ -181,7 +181,7 @@ app.get('/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             }
             else {
                 console.error(err);
-                return res.status(500).json({ message: 'Erro no servidor, tente denove mais tarde' });
+                return res.status(500).json({ message: 'Error the server, try again more later' });
             }
         }
     }
@@ -203,7 +203,7 @@ app.get('/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             }
             else {
                 console.error(err);
-                return res.status(500).json({ message: 'Erro no serviidor, tente denove mais tarde' });
+                return res.status(500).json({ message: 'Erro the server, try again more later' });
             }
         }
     }
@@ -236,7 +236,7 @@ app.post('/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         }
         else {
             console.error(err);
-            return res.status(500).json({ message: 'Erro No servidor, tente denove mais tarde' });
+            return res.status(500).json({ message: 'Erro the server, try again more later' });
         }
     }
 }));
@@ -264,7 +264,7 @@ app.delete('/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* (
             }
             else {
                 console.error(err);
-                return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
+                return res.status(500).json({ message: 'Erro the server, try again more later' });
             }
         }
     }

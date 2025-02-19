@@ -1,7 +1,7 @@
 const searchInput = document.querySelector('#search');
 const postsContainer = document.querySelector('.posts-container');  
 
-const gerarPosts = post => {
+const generatePosts = post => {
     post.forEach(el => {
         const divPost = document.createElement('div');
         const divPostHeader = document.createElement('div');
@@ -111,7 +111,7 @@ searchInput.addEventListener('input', async () => {
 
         posts = data.posts;
 
-        gerarPosts(posts);
+        generatePosts(posts);
     } catch (err) {
         alert(err);
         console.log(err);

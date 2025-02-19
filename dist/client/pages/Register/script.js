@@ -1,3 +1,5 @@
+const { Http2ServerResponse } = require("http2");
+
 document.getElementById('register-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -18,11 +20,11 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
             throw new Error(data.message);
         }
         
-        console.log('Registro bem-sucedido!', data.token);
+        console.log('Register successful!', data.token);
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         window.location.href = '../Home/Home.html';
     } catch (error) {
-        console.error('Erro na comunicação com o servidor:', error);
+        console.error('Error comunication with the server:', error);
     }
 });
