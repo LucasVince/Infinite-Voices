@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="../script.js" defer></script>
+    <script src="script.js" defer></script>
+    <title></title>
+</head>
+<body>
+    <div id="transition">
+    </div>
+    <video autoplay loop muted id="background-video">
+        <source src="../../assets/ocean_video_persona3_reload.mp4" type="video/mp4">
+    </video>
+    <header>
+        Infinite Voices Forum
+    </header>
+    <nav>
+        <p id="home">Home</p>
+        <p id="post">Post</p>
+        <p id="topics">Topics</p>
+        <p id="profile">Profile</p>
+        <p id="configs">Configs</p>
+        <p id="logout">Logout</p>
+        <p id="credits">Credits</p>
+    </nav>
+    <main>
+        <div class="chat-container">
+            <div class="chat-message">
+                <div class="post">
+                    <div class="post-header">
+                        <div class="infos">
+                            <img src="../../assets/avatar_default.jpg">
+                            <p></p>
+                        </div>
+                        <div class="tags">
+                        </div>
+                    </div>
+                    <div class="posts-content">
+                        <h1></h1>
+                        <p></p>
+                    </div>
+                    <div class="post-atachments">
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Title" id="title">
+                <div class="tag-container">
+                    <input type="text" placeholder="Tag" id="tag">
+                    <button id="add-tag">Add</button>
+                </div>
+                <textarea placeholder="Type your message..." id="message"></textarea>
+                <button id="send">Post Message</button>
+            </div>
+    </main>
+    <footer>
+        &copy; 2025 Infinite Voices. All rights reserved.
+    </footer>
+</body>
+</html>

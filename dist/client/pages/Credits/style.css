@@ -1,0 +1,195 @@
+#transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    background-color: white;
+    transform: translateX(-100vw);
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+}
+
+body {
+    background-image: url('../../imgs/ocean_gif_persona3_reload.gif');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #1437D2;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1437D2;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #F60220;
+}
+
+nav {
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+}
+
+nav p {
+    color: #1437D2;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer ;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;    
+}
+
+footer {
+    background-color: #1437D2;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.credits-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.credit-item {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin: 20px 0;
+    background-color: #ffffff;
+    border: 2px solid #1437D2;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    gap: 75px;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #1437D2;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.profile-pic img {
+    width: 100px;
+    height: 100px;
+}
+
+.profile-info h2 {
+    color: #1437D2;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+}
+
+.profile-info a {
+    color: #1437D2;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    margin-top: 5px;
+}
+
+.profile-info p {
+    color: #1437D2;
+    font-size: 0.9em;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.stats {
+    background-image: linear-gradient(168deg, #0AEAFD, #000CAF);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 2px solid #1437D2;
+    border-radius: 5px;
+    box-shadow: inset 0 10px 25px #00000080;
+}
+
+.stats div {
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.stats h3 {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+}
+
+.stats p {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1em;
+    margin: 0;
+    font-weight: bold;
+}
+
+@keyframes transition-start {
+    from {
+        transform: translateX(-100vw);        
+    }
+    to {
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes transition-end {
+    from {
+        transform: translateX(0vw);        
+    }
+    to {
+        transform: translateX(100vw);
+    }
+}
