@@ -65,66 +65,95 @@ footer {
     width: 100%;
 }
 
-#configs-section {
+.profile-container {
     background-color: #ffffff;
     border: 2px solid #1437D2;
-    padding: 20px;
-    margin: 20px auto;
     border-radius: 10px;
-    width: 500px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
     box-shadow: 5px 5px #F60220;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-#configs-section h2 {
+.profile-header {
+    text-align: center;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #1437D2;
+    box-shadow: 3px 3px #F60220;
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    color: #1437D2;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.profile-bio {
+    color: #1437D2;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.profile-info {
+    background-color: #ffffff;
+    border: 1px solid #1437D2;
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 3px 3px #F60220;
+}
+
+.profile-info h3 {
     color: #1437D2;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
+.profile-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     color: #1437D2;
-    margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #1437D2;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
+.profile-info li {
+    margin: 10px 0;
 }
 
-.form-actions {
+.profile-actions {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
+    gap: 20px;
 }
 
-.form-group input[type="password"] {
-    width: calc(100% - 18px);
-    padding: 8px;
-    border: 1px solid #1437D2;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-button {
+.btn {
     background-color: #1437D2;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 2px 2px #F60220;
 }
 
-button:hover {
+.btn:hover {
     background-color: #F60220;
+}
+
+.delete-acount {
+    background-color: #F60220;
+    box-shadow: 2px 2px #1437D2;
+}
+
+.delete-acount:hover {
+    box-shadow: 2px 2px #F60220;
 }
