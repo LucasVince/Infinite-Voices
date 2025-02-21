@@ -294,26 +294,17 @@ app.post('/deleteaccount', async (req:any, res:any) => {
     }
 
     try {
+        const user = await userModel.findById(userID);
+        if (!user) return res.status(404).json({ message: 'User not found' });
 
-        const user = await userModel.findByIdAndDelete(userID);
-
-        if (!user) {
-            return res.status(404).json({ message: 'user not found' });
-        }
-
-        const passwordValidation = await bcrypt.compare(password, user.password);
-
-        if (!passwordValidation) {
-            return res.status(400).json({ message: 'Wrong password fella' });
-        }
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) return res.status(401).json({ message: 'Wrong password fella' });
 
         await userModel.findByIdAndDelete(userID);
 
-        if (!tokenBlacklist.has(token)) {
-            tokenBlacklist.add(token);
-        }
+        if (!tokenBlacklist.has(token)) tokenBlacklist.add(token);
 
-        return res.status(200).json({ message: 'Account Delleted Succesfully' });
+        return res.status(200).json({ message: 'Account Deleted Successfully' });
     } catch(err) {
         if (err instanceof Error) {
             console.error(err);

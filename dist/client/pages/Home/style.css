@@ -1,20 +1,40 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+}
+
 body {
-    background-color: #ffcc00;
-    color: #000080;
+    background-image: url('../../imgs/ocean_gif_persona3_reload.gif');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #1437D2;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #000080;
+    background-color: #1437D2;
     color: #ffffff;
     text-align: center;
     padding: 20px;
     font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 2px 2px #ff0000;
+    text-shadow: 2px 2px #F60220;
 }
 
 nav {
@@ -25,14 +45,14 @@ nav {
 }
 
 nav a {
-    color: #000080;
+    color: #1437D2;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
 }
 
 nav span {
-    color: #000080;
+    color: #1437D2;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -49,7 +69,7 @@ main {
 }
 
 footer {
-    background-color: #000080;
+    background-color: #1437D2;
     color: #ffffff;
     text-align: center;
     padding: 10px;
@@ -60,13 +80,13 @@ footer {
 
 .posts-container {
     background-color: #ffffff;
-    border: 2px solid #000080;
+    border: 2px solid #1437D2;
     padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
+    gap: 100px; 
 }
 
 .post {
@@ -94,7 +114,7 @@ footer {
 }
 
 .post-header .tags p {
-    background-color: #ffcc0040;
+    background-color: #0FB0F440;
 }
 
 .tags {
@@ -134,29 +154,28 @@ footer {
 }
 
 #delete-button {
-    border: solid 2px #ff0000;
-    padding: 5px 5px;
-    border-radius: 3px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-top: 10px;
     cursor: pointer;
     font-weight: bold;
 }
 
 #comment-button {
-    background-color: #000080;
-    color: white;
-    box-shadow: 2px 2px 0px #ff0000;
-    padding: 5px 5px;
-    padding: 10px 20px;
+    background-color: transparent;
     border: none;
-    border-radius: 5px;
+    outline: none;
+    padding-top: 10px;
     cursor: pointer;
     transform: translateY(-29.2px);
+    font-weight: bold;
 }
 
 #comment-button:hover {
-    background-color: #ff0000;
+    color: #1437D2;
 }
 
 #delete-button:hover {
-    background-color: #ff0000;
+    color: #F60220;
 }

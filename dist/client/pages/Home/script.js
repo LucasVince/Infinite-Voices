@@ -24,7 +24,7 @@ const gerarPosts = post => {
         divPostAtatchment.classList.add('post-atachments');
 
         if (el.author.avatar !== null) userAvatar.src = el.author.avatar;
-        else userAvatar.src = '../../imgs/avatar_default.jpg';
+        else userAvatar.src = '../../assets/avatar_default.jpg';
 
         const username = document.createTextNode(el.author.username);
         const title = document.createTextNode(el.title);
@@ -64,7 +64,7 @@ const gerarPosts = post => {
 
             divPost.appendChild(deleteDiv);
             deleteDiv.appendChild(deleteButton);
-            deleteButton.textContent = '🗑️';
+            deleteButton.textContent = 'Delete Post';
 
             deleteButton.addEventListener('click', () => deletePost(el));
         }

@@ -1,38 +1,53 @@
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+}
+
 body {
-    background-color: #F0F0F0;
-    color: #000080; 
+    background-image: url('../../imgs/ocean_gif_persona3_reload.gif');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    color: #1437D2;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #000080; 
-    color: #ffffff; 
+    background-color: #1437D2;
+    color: #ffffff;
     text-align: center;
     padding: 20px;
     font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 2px 2px #ff0000; 
+    text-shadow: 2px 2px #F60220;
 }
 
 nav {
-    background-color: #ffffff; 
+    background-color: #ffffff;
     padding: 10px;
     text-align: center;
-    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25);
 }
 
 nav a {
-    color: #000080; 
+    color: #1437D2;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
 }
 
 nav span {
-    color: #000080;
+    color: #1437D2;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -46,7 +61,7 @@ main {
 }
 
 footer {
-    background-color: #000080;
+    background-color: #1437D2;
     color: #ffffff;
     text-align: center;
     padding: 10px;
@@ -57,16 +72,16 @@ footer {
 
 #configs {
     background-color: #ffffff;
-    border: 2px solid #000080;
+    border: 2px solid #1437D2;
     padding: 20px;
     margin: 20px auto;
     border-radius: 10px;
     width: 500px;
-    box-shadow: 5px 5px #ff0000;
+    box-shadow: 5px 5px #F60220;
 }
 
 #configs h2 {
-    color: #000080;
+    color: #1437D2;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -77,7 +92,7 @@ footer {
 
 .form-group label {
     display: block;
-    color: #000080;
+    color: #1437D2;
     margin-bottom: 5px;
 }
 
@@ -85,7 +100,7 @@ footer {
 .form-group select {
     width: 100%;
     padding: 8px;
-    border: 1px solid #000080;
+    border: 1px solid #1437D2;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -100,13 +115,13 @@ footer {
 .form-group input[type="password"] {
     width: calc(100% - 18px);
     padding: 8px;
-    border: 1px solid #000080;
+    border: 1px solid #1437D2;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
 }
 
 button {
-    background-color: #000080;
+    background-color: #1437D2;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -116,5 +131,5 @@ button {
 }
 
 button:hover {
-    background-color: #ff0000;
+    background-color: #F60220;
 }

@@ -24,6 +24,5 @@ document.getElementById('logout').addEventListener('click', async () => {
         window.location.href = '../Login/index.html';
     } catch (err) {
         console.log(err.message);
-        return res.message()
     }
 });

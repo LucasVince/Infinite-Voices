@@ -1,38 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+}
+
 body {
-    background-color: #F0F0F0; 
-    color: #000080; 
+
+    color: #1437D2;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #000080; 
-    color: #ffffff; 
+    background-color: #1437D2;
+    color: #ffffff;
     text-align: center;
     padding: 20px;
     font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 2px 2px #ff0000; 
+    text-shadow: 2px 2px #F60220;
 }
 
 nav {
-    background-color: #ffffff; 
+    background-color: #ffffff;
     padding: 10px;
     text-align: center;
-    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25);
 }
 
 nav a {
-    color: #000080; 
+    color: #1437D2;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
 }
 
 nav span {
-    color: #000080;
+    color: #1437D2;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -50,7 +69,7 @@ main {
 }
 
 footer {
-    background-color: #000080;
+    background-color: #1437D2;
     color: #ffffff;
     text-align: center;
     padding: 10px;
@@ -70,28 +89,28 @@ footer {
 .chat-input input[type="text"] {
     flex: 1;
     padding: 10px;
-    border: 2px solid #000080;
+    border: 2px solid #1437D2;
     border-radius: 5px;
     margin-right: 10px;
 }
 
 .chat-input button {
-    background-color: #000080;
+    background-color: #1437D2;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 2px 2px #ff0000;
+    box-shadow: 2px 2px #F60220;
 }
 
 .chat-input button:hover {
-    background-color: #ff0000;
+    background-color: #F60220;
 }
 
 .posts-container {
     background-color: #ffffff;
-    border: 2px solid #000080;
+    border: 2px solid #1437D2;
     padding: 10px;
     border-radius: 10px;
     display: flex;
@@ -125,7 +144,7 @@ footer {
 }
 
 .post-header .tags p {
-    background-color: #ffcc0040;
+    background-color: #0FB0F440;
 }
 
 .tags {

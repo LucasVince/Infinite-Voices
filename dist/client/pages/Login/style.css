@@ -1,21 +1,36 @@
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+}
+
 body {
-    background-color: #ffcc00;
+    background-image: url('../../imgs/ocean_gif_persona3_reload.gif');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
     font-family: 'Courier New', Courier, monospace;
-    color: #000080;
+    color: #1437D2;
     text-align: center;
 }
 
 h1 {
     font-size: 3em;
-    text-shadow: 2px 2px #ff0000;
+    text-shadow: 2px 2px #F60220;
 }
 
 .container {
     display: inline-block;
     background-color: #ffffff;
     padding: 20px;
-    border: 2px solid #000080;
-    box-shadow: 5px 5px #ff0000;
+    border: 2px solid #1437D2;
+    box-shadow: 5px 5px #F60220;
     margin-top: 50px;
 }
 
@@ -32,13 +47,13 @@ input[type="password"] {
     font-size: 1em;
     padding: 5px;
     margin: 10px 0;
-    border: 2px solid #000080;
+    border: 2px solid #1437D2;
     border-radius: 5px;
 }
 
 button[type="submit"] {
     font-size: 1.2em;
-    background-color: #000080;
+    background-color: #1437D2;
     color: #ffffff;
     padding: 10px 20px;
     border: none;
@@ -47,7 +62,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #ff0000;
+    background-color: #F60220;
 }
 
 .signup-link {
@@ -56,10 +71,10 @@ button[type="submit"]:hover {
 }
 
 .signup-link a {
-    color: #000080;
+    color: #1437D2;
     text-decoration: none;
 }
 
 .signup-link a:hover {
-    color: #ff0000;
+    color: #F60220;
 }
