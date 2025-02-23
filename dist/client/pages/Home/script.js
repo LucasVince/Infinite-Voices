@@ -79,7 +79,27 @@ const gerarPosts = post => {
         deleteDiv.appendChild(deleteButton);
         deleteButton.textContent = 'Interact with the post';
 
-        deleteButton.addEventListener('click', () => window.location = './comment/comment.html');
+        deleteButton.addEventListener('click', () => {
+            const transition = document.createElement('div');
+
+            transition.id = 'transition';
+            transition.style.position = 'fixed';
+            transition.style.top = '0';
+            transition.style.left = '0';
+            transition.style.width = '100%';
+            transition.style.height = '100%';
+            transition.style.zIndex = '1000';
+            transition.style.backgroundColor = 'white';
+            transition.style.transform = 'translateX(-100vw)';
+
+            document.body.appendChild(transition);
+
+            transition.style.animation = 'transition-start ease-in-out 1s forwards';
+
+            setTimeout(() => {
+                window.location = './comment/comment.html';
+            }, 1000);
+        });
     });
 }
 

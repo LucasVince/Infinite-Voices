@@ -4,8 +4,26 @@ if (!token) {
     window.location.href = '../Login/index.html';
 }
 
+const generateDivTrasition = () => {
+    const div = document.createElement('div');
+    div.id = 'transition';
+
+    div.style.position = 'fixed';
+    div.style.top = '0';
+    div.style.left = '0';
+    div.style.minWidth = '100%';
+    div.style.minHeight = '100%';
+    div.style.width = 'auto';
+    div.style.height = 'auto';
+    div.style.zIndex = '1';
+    div.style.backgroundColor = 'white';
+    div.style.transform = 'translateX(-100vw)';
+
+    document.body.appendChild(div);
+}
+
 const changeLocation = (url) => {
-    document.querySelector('#transition').style.boxShadow = '10px 0 30px #00000044';
+    generateDivTrasition();
     document.querySelector('#transition').style.animation = 'transition-start ease-in-out 1s forwards';
     setTimeout(() => {
         window.location.href = url;
@@ -13,7 +31,7 @@ const changeLocation = (url) => {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('#transition').style.boxShadow = '-10px 0 30px #00000044';
+    generateDivTrasition();
     document.querySelector('#transition').style.animation = 'transition-end ease-in-out 1s forwards';
 });
 
