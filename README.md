@@ -97,11 +97,6 @@ Infinite Voices/
   - Converts the web forum into a cross-platform desktop app.  
   - Offers a consistent user experience across Windows, Mac, and Linux.  
 
-### **Real-Time Communication**  
-- **Socket.io** 💬:  
-  - Enables seamless and fast real-time communication for chat features.  
-  - Highly reliable under different network conditions.  
-
 ---
 
 ## 🔒 Security & Performance  
