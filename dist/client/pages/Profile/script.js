@@ -1,3 +1,22 @@
+const div = document.createElement('div');
+
+const generateDivTrasition = () => {
+    div.id = 'transition';
+
+    div.style.position = 'fixed';
+    div.style.top = '0';
+    div.style.left = '0';
+    div.style.minWidth = '100%';
+    div.style.minHeight = '100%';
+    div.style.width = 'auto';
+    div.style.height = 'auto';
+    div.style.zIndex = '1';
+    div.style.backgroundColor = 'white';
+    div.style.transform = 'translateX(-100vw)';
+
+    document.body.appendChild(div);
+}
+
 const changeElements = user => {
     const profilePicture = document.querySelector('.profile-picture');
     const profileName = document.querySelector('.profile-name');
@@ -22,6 +41,9 @@ const changeElements = user => {
 }
 
 window.onload = async () => {
+    generateDivTrasition();
+    div.style.animation = 'transition-end ease-in-out 1s forwards';
+
     const userID = JSON.parse(localStorage.getItem('user'))._id;
     try {
         const response = await fetch(`http://localhost:8080/users?userID=${userID}`, {
@@ -46,12 +68,28 @@ window.onload = async () => {
     }
 }
 
+const editProfile = document.querySelector('.edit-profile');
+
+editProfile.addEventListener('click', () => {
+    generateDivTrasition();
+    div.style.animation = 'transition-start ease-in-out 1s forwards';
+
+    setTimeout(() => {
+        window.location = './edit profile/edit.html';
+    }, 1000);
+});
+
 const deleteAcountButton = document.querySelector('.delete-acount');
 
 deleteAcountButton.addEventListener('click', async () => {
     const deleteAcount = confirm('Are you sure you want to delete');
 
     if (deleteAcount) {
-        window.location = './delete account/delete.html';
+        generateDivTrasition();
+        div.style.animation = 'transition-start ease-in-out 1s forwards';
+
+        setTimeout(() => {
+            window.location = './delete account/delete.html';
+        }, 1000);
     }
 });
