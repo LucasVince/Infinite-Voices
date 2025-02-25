@@ -346,8 +346,6 @@ The project is under **continuous development** 🚧, constantly improving with 
 
 ---
 
-
-<<<<<<< HEAD
 ## 📜 License  
 
 This project is licensed under the **MIT License**. 📝  
