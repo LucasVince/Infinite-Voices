@@ -2,7 +2,7 @@
 
 <br>
 
-![Image](https://github.com/user-attachments/assets/4bdba1b7-2906-467a-94c9-d9a6705afb71)
+![Image](assets/infinite-voices-prototype.png)
 ---
 
 ## 🎉 What is **Infinite Voices**?  
