@@ -11,10 +11,6 @@
 }
 
 body {
-    background-image: url('../../../imgs/ocean_gif_persona3_reload.gif');
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
     color: #1437D2;
     font-family: 'Courier New', Courier, monospace;
     margin: 0 0 100px 0;
@@ -62,11 +58,34 @@ main {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
-    margin-bottom: 40px;
+    margin: 200px 0 40px 0;
 }
 
 .posts-content h1 {
     text-align: center;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tags {
+    display: flex;
+    gap: 20px;
+}
+
+.tags p {
+    padding: 3px;
+    border-radius: 3px;
+    background-color: #0FB0F440;
 }
 
 .comments-section {
@@ -75,6 +94,7 @@ main {
     padding: 20px;
     border-radius: 10px;
     border: 2px solid #1437D2;
+    margin-bottom: 40px;
 }
 
 .comments-container {
@@ -97,19 +117,18 @@ main {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
 }
 
 #comment-text {
-    width: 95%;
+    width: 98%;
     height: 100px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #1437D2;
     font-size: 16px;
     margin-bottom: 10px;
-    resize: vertical;   
+    resize: vertical;
+    align-self: center;
 }
 
 #submit-comment {

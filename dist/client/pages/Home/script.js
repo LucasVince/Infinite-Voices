@@ -80,6 +80,8 @@ const gerarPosts = post => {
         deleteButton.textContent = 'Interact with the post';
 
         deleteButton.addEventListener('click', () => {
+            localStorage.setItem('post', JSON.stringify(el));
+
             const transition = document.createElement('div');
 
             transition.id = 'transition';
@@ -158,6 +160,7 @@ const carregarPosts = async () => {
 }
 
 window.addEventListener('scroll', () => {
+    localStorage.removeItem('post');
     const height = document.documentElement.scrollHeight;
     const scroll = window.scrollY + window.innerHeight;
 

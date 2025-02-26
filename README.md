@@ -2,7 +2,7 @@
 
 <br>
 
-![Image](assets/infinite-voices-prototype.png)
+![Image](https://github.com/user-attachments/assets/4bdba1b7-2906-467a-94c9-d9a6705afb71)
 ---
 
 ## 🎉 What is **Infinite Voices**?  
@@ -96,6 +96,11 @@ Infinite Voices/
 - **Electron** 🔲:  
   - Converts the web forum into a cross-platform desktop app.  
   - Offers a consistent user experience across Windows, Mac, and Linux.  
+
+### **Real-Time Communication**  
+- **Socket.io** 💬:  
+  - Enables seamless and fast real-time communication for chat features.  
+  - Highly reliable under different network conditions.  
 
 ---
 
@@ -346,6 +351,8 @@ The project is under **continuous development** 🚧, constantly improving with 
 
 ---
 
+
+<<<<<<< HEAD
 ## 📜 License  
 
 This project is licensed under the **MIT License**. 📝  

@@ -19,6 +19,7 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 const user_model_1 = __importDefault(require("../DB/models/user.model"));
 const post_model_1 = __importDefault(require("../DB/models/post.model"));
+const comment_model_1 = __importDefault(require("../DB/models/comment.model"));
 const tokenBlacklist = new Set();
 app.use(express.json());
 app.use(cors());
@@ -266,6 +267,45 @@ app.delete('/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* (
                 console.error(err);
                 return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
             }
+        }
+    }
+}));
+app.get('/comments', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const postId = req.query.postId;
+    try {
+        const comments = yield comment_model_1.default.find({ postId }).populate('author').exec();
+        return res.status(200).json({ comments });
+    }
+    catch (err) {
+        if (err instanceof Error) {
+            console.error(err);
+            return res.status(500).json({ message: err.message });
+        }
+        else {
+            console.error(err);
+            return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
+        }
+    }
+}));
+app.post('/comments', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { comment, postId, author } = req.body;
+    try {
+        const createComment = yield comment_model_1.default.create({
+            commentContent: comment,
+            postId,
+            author
+        });
+        const commentreturn = yield comment_model_1.default.findById(createComment._id).populate('author').exec();
+        return res.status(200).json({ commentreturn });
+    }
+    catch (err) {
+        if (err instanceof Error) {
+            console.error(err);
+            return res.status(500).json({ message: err.message });
+        }
+        else {
+            console.error(err);
+            return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
         }
     }
 }));

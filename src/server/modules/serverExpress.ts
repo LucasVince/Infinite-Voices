@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 import userModel from '../DB/models/user.model';
 import postModel from '../DB/models/post.model';
+import commentModel from '../DB/models/comment.model';
 
 const tokenBlacklist = new Set();
 
@@ -282,6 +283,48 @@ app.delete('/posts', async (req: any, res: any) => {
                 console.error(err);
                 return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
             }
+        }
+    }
+});
+
+app.get('/comments', async (req: any, res: any) => {
+    const postId = req.query.postId;
+
+    try {
+        const comments = await commentModel.find({ postId }).populate('author').exec();
+
+        return res.status(200).json({ comments });
+    } catch (err) {
+        if (err instanceof Error) {
+            console.error(err);
+            return res.status(500).json({ message: err.message });
+        } else {
+            console.error(err);
+            return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
+        }
+    }
+});
+
+app.post('/comments', async (req: any, res: any) => {
+    const { comment, postId, author } = req.body;
+
+    try {
+        const createComment = await commentModel.create({
+            commentContent: comment,
+            postId,
+            author
+        });
+
+        const commentreturn = await commentModel.findById(createComment._id).populate('author').exec();
+
+        return res.status(200).json({ commentreturn });
+    } catch (err) {
+        if (err instanceof Error) {
+            console.error(err);
+            return res.status(500).json({ message: err.message });
+        } else {
+            console.error(err);
+            return res.status(500).json({ message: 'Erro no servidor, tente denovo mais tarde' });
         }
     }
 });
