@@ -1,8 +1,20 @@
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
-import connection from'./DB/connect';
+import connection from './DB/connect';
+import app from './modules/serverExpress';
 
-const express = require('./modules/serverExpress');
+const PORT = process.env.PORT || 8080;
 
-connection();
+const startServer = async () => {
+    try {
+        await connection(); 
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    } catch (err) {
+        console.error('Error starting server:', err);
+    }
+};
+
+startServer();

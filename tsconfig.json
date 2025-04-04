@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "NodeNext",
-    "strict": true,
-    "moduleResolution": "nodenext",
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
+    "strict": false,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*"]
-    },
-    "types": ["node", "supertest"]
+      "@core/*": ["./src/core/*"],
+      "@application/*": ["./src/application/*"],
+      "@infrastructure/*": ["./src/infrastructure/*"], // Ensure this is correct
+      "@interfaces/*": ["./src/interfaces/*"]
+    }
   },
   "include": [
     "src/**/*"

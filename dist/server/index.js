@@ -1,10 +1,17 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
-const connect_1 = __importDefault(require("./DB/connect"));
-const express = require('./modules/serverExpress');
-(0, connect_1.default)();
+import connection from './DB/connect';
+import app from './modules/serverExpress';
+const PORT = process.env.PORT || 8080;
+const startServer = async () => {
+    try {
+        await connection(); // Certifique-se de que a conexão com o banco de dados está funcionando
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    }
+    catch (err) {
+        console.error('Error starting server:', err);
+    }
+};
+startServer();
