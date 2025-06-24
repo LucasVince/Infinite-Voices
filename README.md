@@ -23,7 +23,7 @@ Key Highlights:
 ## 📌 Quick Links
 
 - 🔎 [What is Infinite Voices?](#-what-is-infinite-voices)
-- 🚀 [Features](docs/features.md)
+- 🚀 [Features](docs/FEATURES.md)
 - 🛠️ [Technologies Used](docs/skills--technologies-used.md)
 - 📈 [Project Status & Vision](docs/current-status.md)
 - 📃 [Credits](docs/credits.md)
