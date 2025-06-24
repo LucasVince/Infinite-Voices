@@ -27,7 +27,7 @@ Key Highlights:
 - 🛠️ [Technologies Used](docs/skills--technologies-used.md)
 - 📈 [Project Status & Vision](docs/current-status.md)
 - 📃 [Credits](docs/credits.md)
-- 📜 [License](license.md)
+- 📜 [License](LICENSE.md)
 
 ## 📚 Documentation
 
