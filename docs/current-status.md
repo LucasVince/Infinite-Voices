@@ -1,5 +1,9 @@
 # 📈 Current Status – Infinite Voices
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4bdba1b7-2906-467a-94c9-d9a6705afb71" alt="Infinite Voices Banner" width="800">
+</p>
+
 ## ✅ Implemented Features
 
 - User registration and login with JWT
