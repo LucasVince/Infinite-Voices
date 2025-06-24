@@ -27,13 +27,13 @@ Key Highlights:
 - 🛠️ [Technologies Used](docs/skills--technologies-used.md)
 - 📈 [Project Status & Vision](docs/current-status.md)
 - 📃 [Credits](docs/credits.md)
-- 📜 [License](docs/license.md)
+- 📜 [License](license.md)
 
 ## 📚 Documentation
 
 - 📂 [Directory Structure](docs/DIRECTORY.md)
 - 🌐 [API Documentation](docs/API.md)
-- 🔐 [Security & Performance](docs/SECURITY.md)
+- 🔐 [Security & Performance](SECURITY.md)
 - 🔄 [Development Workflow](docs/WORKFLOW.md)
 - 🚀 [Features](docs/FEATURES.md)
 
